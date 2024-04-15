@@ -1,11 +1,10 @@
 package no.uib.inf101.sample;
 
-/**
- * Hello world!
- */
+import no.uib.inf101.sample.game.GameFrame;
+
 public class Main {
 
-  public static void main(String[] args) {
-    System.out.println("Hello World!");
-  }
+    public static void main(String[] args) {
+        GameFrame gameFrame = new GameFrame();
+    }
 }
