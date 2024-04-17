@@ -36,4 +36,12 @@ public class Cylinder {
         return targetPosition.x >= position.x && targetPosition.y >= position.y
                 && targetPosition.x < position.x + width && targetPosition.y < position.y + height;
     }
+
+    public boolean isIntersecting(Cylinder otherCylinder) {
+        if(position.y + height < otherCylinder.position.y) return false;
+        if(position.y > otherCylinder.position.y + otherCylinder.height) return false;
+        if(position.x + width < otherCylinder.position.x) return false;
+        if(position.x > otherCylinder.position.x + otherCylinder.width) return false;
+        return true;
+    }
 }

@@ -15,7 +15,7 @@ public class Puzzle {
     private List<WaterTube> waterTubeList;
     private List<Command> commandHistory;
     private WaterTube selected;
-    private int tubeCount;
+    private int tubeCount; 
     private int emptyCount;
     private int emptyAtEndCount;
     private int colourCount;
