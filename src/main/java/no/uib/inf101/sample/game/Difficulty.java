@@ -1,3 +1,5 @@
+//Used Chat-GPT as a helping tool to create a slider panel
+
 package no.uib.inf101.sample.game;
 
 import javax.swing.*;
@@ -9,20 +11,30 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Difficulty class:
+ * Acts as a separate JFrame. Allows access to changing the four different 
+ * properties for generating puzzles
+ */
 public class Difficulty implements ChangeListener, ActionListener {
     private GamePanel gamePanel;
     private JFrame frame;
     private JSlider tubesSlider;
     private JSlider emptySlider;
     private JSlider emptyAtEndSlider;
-    private JSlider coloursSlider;
+    private JSlider colorsSlider;
     private JLabel tubesLabel;
     private JLabel emptyLabel;
     private JLabel emptyAtEndLabel;
-    private JLabel coloursLabel;
+    private JLabel colorsLabel;
     private JButton startButton;
     private boolean loaded;
 
+    /**
+     * Creates a JFrame ready to be shown with show()
+     * 
+     * @param gamePanel Reference to the game panel for creating new games
+     */
     public Difficulty(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
         frame = new JFrame("Difficulty");
@@ -39,11 +51,11 @@ public class Difficulty implements ChangeListener, ActionListener {
         tubesSlider = createSlider(2, 20, 10);
         emptySlider = createSlider(1, tubesSlider.getValue() / 2, 4);
         emptyAtEndSlider = createSlider(0, emptySlider.getValue(), 2);
-        coloursSlider = createSlider(1, Puzzle.possibleColours.length, 4);
+        colorsSlider = createSlider(1, Puzzle.possibleColors.length, 3);
         tubesLabel = createLabel("");
         emptyLabel = createLabel("");
         emptyAtEndLabel = createLabel("");
-        coloursLabel = createLabel("");
+        colorsLabel = createLabel("");
         startButton = createButton("Start");
         loaded = true;
         updateText();
@@ -54,8 +66,8 @@ public class Difficulty implements ChangeListener, ActionListener {
         panel.add(emptySlider);
         panel.add(emptyAtEndLabel);
         panel.add(emptyAtEndSlider);
-        panel.add(coloursLabel);
-        panel.add(coloursSlider);
+        panel.add(colorsLabel);
+        panel.add(colorsSlider);
         panel.add(startButton);
 
         return panel;
@@ -93,6 +105,9 @@ public class Difficulty implements ChangeListener, ActionListener {
         updateText();
     }
 
+    /**
+     * Shows the difficulty frame
+     */
     public void show() {
         frame.setVisible(true);
     }
@@ -101,14 +116,13 @@ public class Difficulty implements ChangeListener, ActionListener {
         tubesLabel.setText("Tubes: " + tubesSlider.getValue());
         emptyLabel.setText("Empty: " + emptySlider.getValue());
         emptyAtEndLabel.setText("Empty At End: " + emptyAtEndSlider.getValue());
-        coloursLabel.setText("Colours: " + coloursSlider.getValue());
+        colorsLabel.setText("Colours: " + colorsSlider.getValue());
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         gamePanel.applyDifficulty(tubesSlider.getValue(), emptySlider.getValue(),
-                emptyAtEndSlider.getValue(), coloursSlider.getValue());
-
+                emptyAtEndSlider.getValue(), colorsSlider.getValue());
         frame.setVisible(false);
     }
 }

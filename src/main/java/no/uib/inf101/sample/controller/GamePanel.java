@@ -13,10 +13,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * GamePanel class:
+ * The primary of game interaction. Manages the buttons,
+ * and controls the puzzle by mouse interactions
+ */
 public class GamePanel extends JPanel implements MouseListener {
-
-    public static final int PANEL_WIDTH = 1100;
-    public static final int PANEL_HEIGHT = 650;
 
     private Puzzle puzzle;
     private Difficulty difficulty;
@@ -27,15 +29,18 @@ public class GamePanel extends JPanel implements MouseListener {
     private Cylinder nextButton;
     private GameView gameView;
 
+    /**
+     * Initialises the game with a default puzzle
+     */
     public GamePanel() {
         difficulty = new Difficulty(this);
         addMouseListener(this);
-        puzzle = new Puzzle(10, 4, 2, 4);
+        puzzle = new Puzzle(10, 4, 2, 3);
         puzzle.newPuzzle();
         gameOver = false;
-        setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+        setPreferredSize(new Dimension(GameView.PANEL_WIDTH, GameView.PANEL_HEIGHT));
         setBackground(new Color(51, 204, 255));
-        nextButton = new Cylinder(PANEL_WIDTH / 2 - 30, PANEL_HEIGHT / 2 + 40, 60, 30);
+        nextButton = new Cylinder(GameView.PANEL_WIDTH / 2 - 30, GameView.PANEL_HEIGHT / 2 + 40, 60, 30);
         restartButton = new Cylinder(10, 10, 85, 30);
         changeDifficultyButton = new Cylinder(100, 10, 105, 30);
         undoButton = new Cylinder(210, 10, 80, 30);
@@ -49,6 +54,12 @@ public class GamePanel extends JPanel implements MouseListener {
         gameView.paint(g, gameOver);
     }
 
+    /**
+     * Pressing Escape will quit, R will trigger the reset action, 
+     * and D will show the difficulty dialog
+     *
+     * @param keyCode The key that was pressed
+     */
     public void handleInput(int keyCode) {
         if (keyCode == KeyEvent.VK_ESCAPE) {
             System.exit(0);
@@ -63,8 +74,16 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
-    public void applyDifficulty(int tubeCount, int emptyCount, int emptyAtEndCount, int colourCount) {
-        Puzzle newPuzzle = new Puzzle(tubeCount, emptyCount, emptyAtEndCount, colourCount);
+    /**
+     * Creates a new puzzle with the specified properties and removes the old one
+     *
+     * @param tubeCount The total number of water tubes to include
+     * @param emptyCount The number of water tubes that will be empty at the end of the solution
+     * @param emptyAtEndCount The number of water tubes that begin empty at the end
+     * @param colorCount The number of different colors that can be randomly place
+     */
+    public void applyDifficulty(int tubeCount, int emptyCount, int emptyAtEndCount, int colorCount) {
+        Puzzle newPuzzle = new Puzzle(tubeCount, emptyCount, emptyAtEndCount, colorCount);
         newPuzzle.newPuzzle();
         puzzle = newPuzzle;
         gameOver = false;
@@ -73,6 +92,9 @@ public class GamePanel extends JPanel implements MouseListener {
         repaint();
     }
 
+    /**
+     * Clears game over state and generates a new puzzle with current settings
+     */
     public void nextPuzzle() {
         puzzle.newPuzzle();
         gameOver = false;
@@ -106,6 +128,7 @@ public class GamePanel extends JPanel implements MouseListener {
         repaint();
     }
 
+    //None of the overrides below are used
     @Override
     public void mousePressed(MouseEvent e) {
     }

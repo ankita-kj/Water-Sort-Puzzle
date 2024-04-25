@@ -8,10 +8,20 @@ import no.uib.inf101.sample.model.Cylinder;
 import no.uib.inf101.sample.model.Puzzle;
 import no.uib.inf101.sample.model.WaterTube;
 
+/**
+ * GameView class: 
+ * provides the graphical representation of the game, including water tubes,
+ * buttons, and game over screen
+ */
 public class GameView {
+    /**
+     * Width of the game panel 
+     */
     public static final int PANEL_WIDTH = 1100;
+    /**
+     * Height of the game panel
+     */
     public static final int PANEL_HEIGHT = 650;
-
     private List<WaterTube> waterTubeList;
     private Puzzle puzzle;
     private Cylinder nextButton;
@@ -20,6 +30,16 @@ public class GameView {
     private Cylinder undoButton;
     private String gameOverMessage = "Great job! You beat the puzzle!";
 
+    /**
+     * Constructs a GameView with the specified parameter
+     * 
+     * @param waterTubeList The list of water tubes in the game
+     * @param puzzle The puzzle object representing the game state
+     * @param restartButton The button for restarting the game
+     * @param changeDifficultyButton The button for changing the game difficulty
+     * @param undoButton The button for undoing the last move
+     * @param nextButton The button for moving on to the next puzzle
+     */
     public GameView(List<WaterTube> waterTubeList, Puzzle puzzle, Cylinder restartButton,
             Cylinder changeDifficultyButton, Cylinder undoButton, Cylinder nextButton) {
         this.waterTubeList = waterTubeList;
@@ -30,6 +50,12 @@ public class GameView {
         this.nextButton = nextButton;
     }
 
+    /**
+     * Paints the graphical representation of the game on the specified graphics object
+     * 
+     * @param g The Graphics object to paint on
+     * @param gameOver A flag indicating whether the game is over
+     */
     public void paint(Graphics g, boolean gameOver) {
         for (WaterTube waterTube : waterTubeList) {
             paintWaterTube(g, waterTube);
@@ -48,24 +74,30 @@ public class GameView {
         drawTitle(g);
     }
 
+    /**
+     * Paints the graphical representation of a water tube on the specified graphics object
+     * 
+     * @param g The Graphics object to paint on
+     * @param watertube The WaterTube object to paint
+     */
     public void paintWaterTube(Graphics g, WaterTube watertube) {
         int sectionWidth = watertube.width / 3;
         int sectionHeight = watertube.height / 6;
         int offset = watertube.isSelected ? 0 : sectionHeight;
-        g.setColor(watertube.colours[3]);
+        g.setColor(watertube.colors[3]);
         g.fillOval(watertube.position.x + sectionWidth,
                 watertube.position.y + (3) * sectionHeight + offset + sectionHeight / 2, sectionWidth, sectionHeight);
         g.setColor(Color.WHITE);
         g.drawOval(watertube.position.x + sectionWidth,
                 watertube.position.y + (3) * sectionHeight + offset + sectionHeight / 2, sectionWidth, sectionHeight);
-        for (int i = 0; i < watertube.colours.length; i++) {
-            g.setColor(watertube.colours[i]);
+        for (int i = 0; i < watertube.colors.length; i++) {
+            g.setColor(watertube.colors[i]);
             g.fillRect(watertube.position.x + sectionWidth, watertube.position.y + (i) * sectionHeight + offset,
                     sectionWidth, sectionHeight);
         }
         g.setColor(Color.WHITE);
         g.drawRect(watertube.position.x + sectionWidth, watertube.position.y + offset, sectionWidth, sectionHeight * 4);
-        g.setColor(watertube.colours[3]);
+        g.setColor(watertube.colors[3]);
         g.fillRect(watertube.position.x + sectionWidth + 1, watertube.position.y + (3) * sectionHeight + offset + 1,
                 sectionWidth - 1, sectionHeight);
     }
