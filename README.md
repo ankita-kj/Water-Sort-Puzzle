@@ -2,3 +2,5 @@
 The game is based on the rule set in the game “Water Sort Puzzle". You are presented with some number of water tubes that each have four blocks. Each block can hold a single color or can be empty. When the game starts, colors are randomly spread across the water tubes. The player can then click on the water tubes that are not empty and pour them into other water tubes that either have the same top color or are empty. The game ends when all water tubes contain four of the same colours, with any remaining empty. To create a more challenging puzzle, a difficulty panel can be shown to change the count of water tubes, colors and empty tubes in the game. 
 
 A player can undo their move with either the undo button or by pressing the "U" key. The game can be reset by clicking the reset button or pressing the "R" key. A difficulty panel can be shown by clicking the difficulty button or by pressing the "D"  key. When a player is done with the game, they can either press the "esc" key or klick the x in the top left corner. 
+
+Video link; https://youtu.be/-DagHjTA4_4
