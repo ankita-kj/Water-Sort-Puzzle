@@ -1,17 +1,11 @@
-package no.uib.inf101.model;
-
+package no.uib.inf101.sample.model;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.awt.Color;
-
 import org.junit.jupiter.api.Test;
-
-import no.uib.inf101.sample.model.Position;
-import no.uib.inf101.sample.model.WaterTube;
 
 public class WaterTubeTest {
 

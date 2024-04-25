@@ -1,6 +1,5 @@
-package no.uib.inf101.model;
+package no.uib.inf101.sample.model;
 
-import no.uib.inf101.sample.model.Position;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 

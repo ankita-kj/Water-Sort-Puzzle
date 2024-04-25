@@ -1,4 +1,4 @@
-package no.uib.inf101.model;
+package no.uib.inf101.sample.model;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,10 +10,6 @@ import java.awt.Color;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-
-import no.uib.inf101.sample.model.Position;
-import no.uib.inf101.sample.model.Puzzle;
-import no.uib.inf101.sample.model.WaterTube;
 
 public class PuzzleTest {
 

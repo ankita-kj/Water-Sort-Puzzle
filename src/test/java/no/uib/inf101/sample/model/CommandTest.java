@@ -1,12 +1,8 @@
-package no.uib.inf101.model;
+package no.uib.inf101.sample.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.awt.Color;
 import org.junit.jupiter.api.Test;
-
-import no.uib.inf101.sample.model.Command;
-import no.uib.inf101.sample.model.Position;
-import no.uib.inf101.sample.model.WaterTube;
 
 public class CommandTest {
     @Test
