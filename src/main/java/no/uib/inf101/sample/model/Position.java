@@ -1,3 +1,5 @@
+//Used chat-GPT as a helping tool for Position class
+
 package no.uib.inf101.sample.model;
 
 /**
@@ -18,7 +20,7 @@ public class Position {
      */
     public static final Position LEFT = new Position(-1, 0);
     /**
-     * Right moving vector 
+     * Right moving vector
      */
     public static final Position RIGHT = new Position(1, 0);
     /**

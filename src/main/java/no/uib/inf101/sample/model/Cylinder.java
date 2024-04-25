@@ -7,24 +7,24 @@ package no.uib.inf101.sample.model;
  */
 public class Cylinder {
     /**
-     * Top left corner of the cylinder 
+     * Top left corner of the cylinder
      */
     public Position position;
     /**
-     * Width of the cylinder 
+     * Width of the cylinder
      */
     public int width;
     /**
-     * Height of the cylinder 
+     * Height of the cylinder
      */
     public int height;
 
     /**
      * Creates a new cylinder
      * 
-     * @param position Top left corner of the cylinder 
-     * @param width Width of the cylinder 
-     * @param height Height of the cylinder 
+     * @param position Top left corner of the cylinder
+     * @param width    Width of the cylinder
+     * @param height   Height of the cylinder
      */
     public Cylinder(Position position, int width, int height) {
         this.position = position;
@@ -33,10 +33,10 @@ public class Cylinder {
     }
 
     /**
-     * @param x X coordinate of the top left corner 
-     * @param y Y coordinate of the top left corner 
-     * @param width Width of the cylinder
-     * @param height Height of the cylinder 
+     * @param x      X coordinate of the top left corner
+     * @param y      Y coordinate of the top left corner
+     * @param width  Width of the cylinder
+     * @param height Height of the cylinder
      */
     public Cylinder(int x, int y, int width, int height) {
         this(new Position(x, y), width, height);
@@ -45,7 +45,7 @@ public class Cylinder {
     /**
      * Gets the height of the cylinder
      * 
-     * @return Height of the cylinder 
+     * @return Height of the cylinder
      */
     public int getHeight() {
         return height;
@@ -54,16 +54,16 @@ public class Cylinder {
     /**
      * Gets the width of the cylinder
      * 
-     * @return Width of the cylinder 
+     * @return Width of the cylinder
      */
     public int getWidth() {
         return width;
     }
 
     /**
-     * Gets the top left corner of the cylinder 
+     * Gets the top left corner of the cylinder
      * 
-     * @return Top left corner of the cylinder 
+     * @return Top left corner of the cylinder
      */
     public Position getPosition() {
         return position;
@@ -79,10 +79,10 @@ public class Cylinder {
     }
 
     /**
-     * Tests if the targetPosition is inside the cylinder
+     * Checks if the targetPosition is inside the cylinder
      * 
-     * @param targetPosition Position to test if it is inside the cylinder 
-     * @return True if the targetPosition is inside this cylinder 
+     * @param targetPosition Position to test if it is inside the cylinder
+     * @return True if the targetPosition is inside this cylinder
      */
     public boolean isPositionInside(Position targetPosition) {
         return targetPosition.x >= position.x && targetPosition.y >= position.y
@@ -90,11 +90,11 @@ public class Cylinder {
     }
 
     /**
-     * Tests the Cylinder is intersecting with some otherCylinder
+     * Checks if Cylinder is intersecting with some otherCylinder
      * 
      * @param otherCylinder Other position to compare against for a collision
      * @return True if this Cylinder is intersecting the otherCylinder
-    */
+     */
     public boolean isIntersecting(Cylinder otherCylinder) {
         if (position.y + height < otherCylinder.position.y)
             return false;

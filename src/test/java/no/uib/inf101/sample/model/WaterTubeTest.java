@@ -60,10 +60,10 @@ public class WaterTubeTest {
     @Test
     public void testFourOfSameColour() {
         WaterTube tube = new WaterTube(new Position(0, 0), 100, 200);
-        tube.add(3, Color.PINK); 
-        assertFalse(tube.fourOfSameColor()); 
-        tube.add(1, Color.PINK); 
-        assertTrue(tube.fourOfSameColor()); 
+        tube.add(3, Color.PINK);
+        assertFalse(tube.fourOfSameColor());
+        tube.add(1, Color.PINK);
+        assertTrue(tube.fourOfSameColor());
     }
 
     @Test
@@ -75,9 +75,8 @@ public class WaterTubeTest {
     @Test
     public void testSetColors() {
         WaterTube tube = new WaterTube(new Position(0, 0), 100, 200);
-        Color[] newColors = {Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE};
+        Color[] newColors = { Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE };
         tube.setColors(newColors);
         assertArrayEquals(newColors, tube.getColors());
     }
 }
-

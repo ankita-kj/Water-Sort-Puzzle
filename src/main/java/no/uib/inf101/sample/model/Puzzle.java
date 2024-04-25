@@ -15,7 +15,7 @@ import no.uib.inf101.sample.view.GameView;
  */
 public class Puzzle {
     /**
-     *All the possible colors that can be used for the game
+     * All the possible colors that can be used for the game
      */
     public static final Color[] possibleColors = { Color.WHITE, Color.LIGHT_GRAY, Color.ORANGE, Color.YELLOW,
             Color.CYAN, Color.PINK, Color.MAGENTA, new Color(255, 102, 102) };
@@ -33,10 +33,12 @@ public class Puzzle {
     /**
      * Prepares the puzzle ready for a new puzzle to be created
      * 
-     * @param tubeCount The total number of water tubes to include
-     * @param emptyCount The number of water tubes that will be empty at the end of the solution
+     * @param tubeCount       The total number of water tubes to include
+     * @param emptyCount      The number of water tubes that will be empty at the
+     *                        end of the solution
      * @param emptyAtEndCount The number of water tubes that begin empty at the end
-     * @param colorCount The number of different colors that can be randomly placed
+     * @param colorCount      The number of different colors that can be randomly
+     *                        placed
      */
     public Puzzle(int tubeCount, int emptyCount, int emptyAtEndCount, int colorCount) {
         waterTubeList = new ArrayList<>();
@@ -55,10 +57,9 @@ public class Puzzle {
     public void newPuzzle() {
         waterTubeList.clear();
         commandHistory.clear();
-        // Choose the colors that will be used by randomising the order of existing colors
         List<Color> colorSelection = Arrays.asList(possibleColors.clone());
         Collections.shuffle(colorSelection);
-         // Calculate the spacing to be used for visual elements
+        // Calculate the spacing to be used for visual elements
         int fitTubes = (tubeCount % 2 == 0) ? tubeCount / 2 : (tubeCount + 1) / 2;
         int tubeWidth = Math.min(GameView.PANEL_WIDTH / fitTubes, 150);
         int tubeHeight = 200;
@@ -72,14 +73,14 @@ public class Puzzle {
                 y += tubeHeight;
             }
         }
-         // Create a random selection of color counts to apply colors randomly
+        // Create a random selection of color counts to apply colors randomly
         int[] colorCounts = new int[colorCount];
         int totalColors = 0;
         for (int i = 0; i < tubeCount - emptyCount; i++) {
             colorCounts[(int) (Math.random() * colorCounts.length)] += 4;
             totalColors += 4;
         }
-         // Distribute all the colors into the tubes randomly until there are no more to distribute
+        // Distribute all the colors into the tubes randomly
         while (totalColors > 0) {
             int colorID;
             do {
@@ -97,7 +98,7 @@ public class Puzzle {
     }
 
     /**
-     * Clears any currently selected water tube if there is one 
+     * Clears any currently selected water tube if there is one
      */
     public void clearSelection() {
         if (selected != null) {
@@ -107,14 +108,12 @@ public class Puzzle {
     }
 
     /**
-     * Finds a water tube that has been clicked on if there is one.
-     * If one has previously been selected it will attempt to pour
-     * into the new one and then clear the selection. Otherwise
-     * it will select the one that has been clicked provided
-     * it is not empty.
-     * 
-     * @param mousePosition Position of the mouse
-     */
+    * Handles a mouse click event on the puzzle.
+    * If a water tube is clicked, it either selects the tube or pours water into it,
+    * depending on the current selection and the contents of the clicked tube.
+    * 
+    * @param mousePosition The position of the mouse click
+    */
     public void handleClick(Position mousePosition) {
         WaterTube waterTubeAtMouse = getWaterTubeAt(mousePosition);
         if (waterTubeAtMouse == null)
@@ -160,9 +159,9 @@ public class Puzzle {
      * If the pour succeeds the command is logged into the command history for undo
      * 
      * @param from The water tube to pour from
-     * @param to The water tube to pour into
+     * @param to   The water tube to pour into
      * @return True if the pour was successful
-     */ 
+     */
     public boolean pourTube(WaterTube from, WaterTube to) {
         if (from.topColor() == Color.BLACK || to.countRoom() == 0
                 || (to.topColor() != Color.BLACK && from.topColor() != to.topColor())) {
@@ -189,8 +188,9 @@ public class Puzzle {
     }
 
     /**
-     * Checks if there are any commands in the command history to undo()
-     * @return True if undo() can be called
+     * Checks if there are any commands in the command history to undo
+     * 
+     * @return True if undo can be called
      */
     public boolean isUndoAvailable() {
         return commandHistory.size() != 0;
@@ -237,7 +237,8 @@ public class Puzzle {
     /**
      * Retrieves the command history of the puzzle
      * 
-     * @return The list of commands representing the history of actions performed in the puzzle
+     * @return The list of commands representing the history of actions performed in
+     *         the puzzle
      */
     public List<Command> getCommandHistory() {
         return commandHistory;

@@ -78,5 +78,5 @@ public class CylinderTest {
         Cylinder cylinder1 = new Cylinder(new Position(10, 10), 100, 200);
         Cylinder cylinder2 = new Cylinder(new Position(150, 250), 100, 200);
         assertFalse(cylinder1.isIntersecting(cylinder2));
-    } 
+    }
 }

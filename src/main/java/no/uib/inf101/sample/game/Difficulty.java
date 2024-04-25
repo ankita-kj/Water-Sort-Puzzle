@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Difficulty class:
- * Acts as a separate JFrame. Allows access to changing the four different 
+ * Acts as a separate JFrame. Allows access to changing the four different
  * properties for generating puzzles
  */
 public class Difficulty implements ChangeListener, ActionListener {
@@ -31,7 +31,7 @@ public class Difficulty implements ChangeListener, ActionListener {
     private boolean loaded;
 
     /**
-     * Creates a JFrame ready to be shown with show()
+     * Creates a JFrame ready to be shown with show
      * 
      * @param gamePanel Reference to the game panel for creating new games
      */

@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 
 /**
  * GameFrame class:
- * Represents the main frame of the game.
+ * Represents the main frame of the game
  * Contains a GamePanel where the game is displayed
  */
 public class GameFrame implements KeyListener {
@@ -33,7 +33,7 @@ public class GameFrame implements KeyListener {
         gamePanel.handleInput(e.getKeyCode());
     }
 
-    //The overrides below are not used 
+    // The overrides below are not used
     @Override
     public void keyReleased(KeyEvent e) {
     }

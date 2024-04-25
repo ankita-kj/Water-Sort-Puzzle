@@ -17,11 +17,11 @@ public class WaterTube extends Cylinder {
     public boolean isSelected;
 
     /**
-     * Creates a test tube and fills it with block (empty)
+     * Creates a water tube and fills it with block (empty)
      * 
      * @param position Position to place the water tube
-     * @param width Width of the water tube
-     * @param height Height of the water tube 
+     * @param width    Width of the water tube
+     * @param height   Height of the water tube
      */
     public WaterTube(Position position, int width, int height) {
         super(position, width, height);
@@ -33,9 +33,10 @@ public class WaterTube extends Cylinder {
     }
 
     /**
-     * Changes the current selection state of the water tube 
+     * Changes the current selection state of the water tube
      * 
-     * @param isSelected True to make the test tube move upward, false to use default position
+     * @param isSelected True to make the water tube move upward, false to use
+     *                   default position
      */
     public void setSelected(boolean isSelected) {
         this.isSelected = isSelected;
@@ -51,7 +52,7 @@ public class WaterTube extends Cylinder {
     }
 
     /**
-     * Finds the top color of the test tube if there is one
+     * Finds the top color of the water tube if there is one
      * 
      * @return BLACK, or the first top color that is not black
      */
@@ -64,7 +65,7 @@ public class WaterTube extends Cylinder {
     }
 
     /**
-     * Gets how many positions are empty (Black) in the test tube
+     * Gets how many positions are empty (Black) in the water tube
      * 
      * @return A number between 0 and 4
      */
@@ -80,7 +81,7 @@ public class WaterTube extends Cylinder {
     /**
      * Gets the number of occurrences of the top not black color
      * 
-     * @return  A number between 0 and 4
+     * @return A number between 0 and 4
      */
     public int countTopColor() {
         for (int i = 0; i < 4; i++) {
@@ -136,9 +137,10 @@ public class WaterTube extends Cylinder {
     }
 
     /**
-     * Test if the elements all match in the test tube. This is also true if it is empty
+     * Test if the elements all match in the water tube. This is also true if it is
+     * empty
      * 
-     * @return True if the elements in the test tube are all the same
+     * @return True if the elements in the water tube are all the same
      */
     public boolean fourOfSameColor() {
         for (int i = 1; i < 4; i++) {
@@ -150,7 +152,7 @@ public class WaterTube extends Cylinder {
     }
 
     /**
-     * Gets all the colors represented in this test tube.
+     * Gets all the colors represented in this water tube
      * 
      * @return The array of colors for this object
      */

@@ -55,7 +55,7 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     /**
-     * Pressing Escape will quit, R will trigger the reset action, 
+     * Pressing Escape will quit, R will trigger the reset action,
      * and D will show the difficulty dialog
      *
      * @param keyCode The key that was pressed
@@ -77,10 +77,12 @@ public class GamePanel extends JPanel implements MouseListener {
     /**
      * Creates a new puzzle with the specified properties and removes the old one
      *
-     * @param tubeCount The total number of water tubes to include
-     * @param emptyCount The number of water tubes that will be empty at the end of the solution
+     * @param tubeCount       The total number of water tubes to include
+     * @param emptyCount      The number of water tubes that will be empty at the
+     *                        end of the solution
      * @param emptyAtEndCount The number of water tubes that begin empty at the end
-     * @param colorCount The number of different colors that can be randomly place
+     * @param colorCount      The number of different colors that can be randomly
+     *                        place
      */
     public void applyDifficulty(int tubeCount, int emptyCount, int emptyAtEndCount, int colorCount) {
         Puzzle newPuzzle = new Puzzle(tubeCount, emptyCount, emptyAtEndCount, colorCount);
@@ -128,7 +130,7 @@ public class GamePanel extends JPanel implements MouseListener {
         repaint();
     }
 
-    //None of the overrides below are used
+    // None of the overrides below are used
     @Override
     public void mousePressed(MouseEvent e) {
     }

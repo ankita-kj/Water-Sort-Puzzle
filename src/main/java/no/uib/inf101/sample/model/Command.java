@@ -14,10 +14,10 @@ public class Command {
     private int removeCount;
 
     /**
-     * @param from The water tube the color is coming from 
-     * @param to The water tube the color is going to
-     * @param color The color that is to be applied 
-     * @param removeCount The count of colors that are being transferred 
+     * @param from        The water tube the color is coming from
+     * @param to          The water tube the color is going to
+     * @param color       The color that is to be applied
+     * @param removeCount The count of colors that are being transferred
      */
     public Command(WaterTube from, WaterTube to, Color color, int removeCount) {
         this.from = from;
@@ -28,7 +28,7 @@ public class Command {
 
     /**
      * Executes the command by removing the specified number from the
-     * "from" and transferring that same number of the colour to the "to"
+     * "from" and transferring that same number of the color to the "to"
      */
     public void execute() {
         from.remove(removeCount);
@@ -37,7 +37,7 @@ public class Command {
 
     /**
      * Performs the reverse of command by removing the specified number from the
-     * "to" and transferring that same number of the colour to the "from"
+     * "to" and transferring that same number of the color to the "from"
      */
     public void reverse() {
         to.remove(removeCount);
