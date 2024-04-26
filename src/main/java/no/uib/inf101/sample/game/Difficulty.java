@@ -105,18 +105,11 @@ public class Difficulty implements ChangeListener, ActionListener {
         updateText();
     }
 
-    /**
-     * Shows the difficulty frame
-     */
-    public void show() {
-        frame.setVisible(true);
-    }
-
     private void updateText() {
         tubesLabel.setText("Tubes: " + tubesSlider.getValue());
         emptyLabel.setText("Empty: " + emptySlider.getValue());
         emptyAtEndLabel.setText("Empty At End: " + emptyAtEndSlider.getValue());
-        colorsLabel.setText("Colours: " + colorsSlider.getValue());
+        colorsLabel.setText("Colors: " + colorsSlider.getValue());
     }
 
     @Override
@@ -124,5 +117,12 @@ public class Difficulty implements ChangeListener, ActionListener {
         gamePanel.applyDifficulty(tubesSlider.getValue(), emptySlider.getValue(),
                 emptyAtEndSlider.getValue(), colorsSlider.getValue());
         frame.setVisible(false);
+    }
+
+    /**
+     * Shows the difficulty frame
+     */
+    public void show() {
+        frame.setVisible(true);
     }
 }
