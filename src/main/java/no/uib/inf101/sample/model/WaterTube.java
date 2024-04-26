@@ -6,13 +6,14 @@ import java.awt.*;
  * WaterTube class:
  * Represents a single water tube consisting of four colors
  */
-public class WaterTube extends Cylinder {
+public class WaterTube extends Cylinder implements Tube {
+
     /**
      * The current four colors shown in the water tube
      */
     public Color[] colors;
     /**
-     * If the water tube is currently selected the position is offset to move it up
+     * If the water tube is currently selected the posistion is offset to move it up
      */
     public boolean isSelected;
 
@@ -32,30 +33,17 @@ public class WaterTube extends Cylinder {
         isSelected = false;
     }
 
-    /**
-     * Changes the current selection state of the water tube
-     * 
-     * @param isSelected True to make the water tube move upward, false to use
-     *                   default position
-     */
+    @Override
     public void setSelected(boolean isSelected) {
         this.isSelected = isSelected;
     }
 
-    /**
-     * Checks whether the water tube is currently selected
-     * 
-     * @return True if the water tube is selected, false otherwise
-     */
+    @Override
     public boolean isSelected() {
         return isSelected;
     }
 
-    /**
-     * Finds the top color of the water tube if there is one
-     * 
-     * @return BLACK, or the first top color that is not black
-     */
+    @Override
     public Color topColor() {
         for (int i = 0; i < 4; i++) {
             if (colors[i] != Color.BLACK)
@@ -64,11 +52,7 @@ public class WaterTube extends Cylinder {
         return Color.BLACK;
     }
 
-    /**
-     * Gets how many positions are empty (Black) in the water tube
-     * 
-     * @return A number between 0 and 4
-     */
+    @Override
     public int countRoom() {
         int freeCount = 0;
         for (int i = 0; i < 4; i++) {
@@ -78,11 +62,7 @@ public class WaterTube extends Cylinder {
         return freeCount;
     }
 
-    /**
-     * Gets the number of occurrences of the top not black color
-     * 
-     * @return A number between 0 and 4
-     */
+    @Override
     public int countTopColor() {
         for (int i = 0; i < 4; i++) {
             if (colors[i] != Color.BLACK) {
@@ -96,11 +76,7 @@ public class WaterTube extends Cylinder {
         return 0;
     }
 
-    /**
-     * Removes count number of non-black elements by turning the black
-     * 
-     * @param count The number of non-black elements to remove
-     */
+    @Override
     public void remove(int count) {
         int removed = 0;
         for (int i = 0; i < 4 && removed != count; i++) {
@@ -111,13 +87,7 @@ public class WaterTube extends Cylinder {
         }
     }
 
-    /**
-     * Finds the point to start inserting at, and then inserts
-     * upward to fill count number of places with the color
-     * 
-     * @param count Number of elements to add of color
-     * @param color The color of the elements to add
-     */
+    @Override
     public void add(int count, Color color) {
         int addFrom = 0;
         for (int i = 0; i < 4; i++) {
@@ -136,12 +106,7 @@ public class WaterTube extends Cylinder {
         }
     }
 
-    /**
-     * Test if the elements all match in the water tube. This is also true if it is
-     * empty
-     * 
-     * @return True if the elements in the water tube are all the same
-     */
+    @Override
     public boolean fourOfSameColor() {
         for (int i = 1; i < 4; i++) {
             if (colors[i] != colors[0]) {
@@ -151,20 +116,12 @@ public class WaterTube extends Cylinder {
         return true;
     }
 
-    /**
-     * Gets all the colors represented in this water tube
-     * 
-     * @return The array of colors for this object
-     */
+    @Override
     public Color[] getColors() {
         return colors;
     }
 
-    /**
-     * Overwrites the current colors with the new colors array
-     * 
-     * @param colors The colors to apply
-     */
+    @Override
     public void setColors(Color[] colors) {
         this.colors = colors;
     }

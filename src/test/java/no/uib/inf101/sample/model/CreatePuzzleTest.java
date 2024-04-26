@@ -11,11 +11,11 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-public class PuzzleTest {
+public class CreatePuzzleTest {
 
     @Test
     public void testNewPuzzle() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         List<WaterTube> waterTubeList = puzzle.getWaterTubeList();
         assertNotNull(waterTubeList);
@@ -24,7 +24,7 @@ public class PuzzleTest {
 
     @Test
     void clearSelection() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         WaterTube selectedTube = puzzle.getWaterTubeList().get(0);
         puzzle.handleClick(selectedTube.getPosition());
@@ -35,7 +35,7 @@ public class PuzzleTest {
 
     @Test
     public void testHandleClick() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         WaterTube selectedTube = puzzle.getWaterTubeList().get(0);
         puzzle.handleClick(selectedTube.getPosition());
@@ -44,7 +44,7 @@ public class PuzzleTest {
 
     @Test
     public void testGameWon() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         List<WaterTube> waterTubeList = puzzle.getWaterTubeList();
         for (WaterTube tube : waterTubeList) {
             tube.add(4, Color.PINK);
@@ -54,7 +54,7 @@ public class PuzzleTest {
 
     @Test
     public void testUndo() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         WaterTube tube = puzzle.getWaterTubeList().get(0);
         tube.add(1, Color.PINK);
@@ -68,7 +68,7 @@ public class PuzzleTest {
 
     @Test
     public void testPourTube() {
-        Puzzle puzzle = new Puzzle(4, 2, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(4, 2, 1, 3);
         WaterTube fromTube = new WaterTube(new Position(0, 0), 100, 200);
         WaterTube toTube = new WaterTube(new Position(150, 0), 100, 200);
         fromTube.add(2, Color.WHITE);
@@ -83,7 +83,7 @@ public class PuzzleTest {
 
     @Test
     public void testPourTubeOnlyEmptyOrSameColor() {
-        Puzzle puzzle = new Puzzle(4, 2, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(4, 2, 1, 3);
         WaterTube fromTube = new WaterTube(new Position(0, 0), 100, 200);
         WaterTube toTubeEmpty = new WaterTube(new Position(150, 0), 100, 200);
         WaterTube toTubeSameColor = new WaterTube(new Position(300, 0), 100, 200);
@@ -102,7 +102,7 @@ public class PuzzleTest {
 
     @Test
     public void testReset() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         Color[][] initialColors = new Color[3][4];
         for (int i = 0; i < puzzle.getWaterTubeList().size(); i++) {
@@ -125,20 +125,20 @@ public class PuzzleTest {
 
     @Test
     void getWaterTubeList() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         assertNotNull(puzzle.getWaterTubeList());
     }
 
     @Test
     void getCommandHistory() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         assertNotNull(puzzle.getCommandHistory());
     }
 
     @Test
     void getSelectedTube() {
-        Puzzle puzzle = new Puzzle(3, 1, 1, 3);
+        CreatePuzzle puzzle = new CreatePuzzle(3, 1, 1, 3);
         puzzle.newPuzzle();
         assertNull(puzzle.getSelectedTube());
     }

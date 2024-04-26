@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.List;
 import no.uib.inf101.sample.model.Cylinder;
-import no.uib.inf101.sample.model.Puzzle;
+import no.uib.inf101.sample.model.CreatePuzzle;
 import no.uib.inf101.sample.model.WaterTube;
 
 /**
@@ -23,7 +23,7 @@ public class GameView {
      */
     public static final int PANEL_HEIGHT = 650;
     private List<WaterTube> waterTubeList;
-    private Puzzle puzzle;
+    private CreatePuzzle puzzle;
     private Cylinder nextButton;
     private Cylinder restartButton;
     private Cylinder changeDifficultyButton;
@@ -40,7 +40,7 @@ public class GameView {
      * @param undoButton             The button for undoing the last move
      * @param nextButton             The button for moving on to the next puzzle
      */
-    public GameView(List<WaterTube> waterTubeList, Puzzle puzzle, Cylinder restartButton,
+    public GameView(List<WaterTube> waterTubeList, CreatePuzzle puzzle, Cylinder restartButton,
             Cylinder changeDifficultyButton, Cylinder undoButton, Cylinder nextButton) {
         this.waterTubeList = waterTubeList;
         this.puzzle = puzzle;

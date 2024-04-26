@@ -4,7 +4,7 @@ import javax.swing.*;
 import no.uib.inf101.sample.game.Difficulty;
 import no.uib.inf101.sample.model.Cylinder;
 import no.uib.inf101.sample.model.Position;
-import no.uib.inf101.sample.model.Puzzle;
+import no.uib.inf101.sample.model.CreatePuzzle;
 import no.uib.inf101.sample.view.GameView;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -20,7 +20,7 @@ import java.awt.event.MouseListener;
  */
 public class GamePanel extends JPanel implements MouseListener {
 
-    private Puzzle puzzle;
+    private CreatePuzzle puzzle;
     private Difficulty difficulty;
     private boolean gameOver;
     private Cylinder restartButton;
@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements MouseListener {
     public GamePanel() {
         difficulty = new Difficulty(this);
         addMouseListener(this);
-        puzzle = new Puzzle(10, 4, 2, 3);
+        puzzle = new CreatePuzzle(10, 4, 2, 3);
         puzzle.newPuzzle();
         gameOver = false;
         setPreferredSize(new Dimension(GameView.PANEL_WIDTH, GameView.PANEL_HEIGHT));
@@ -85,7 +85,7 @@ public class GamePanel extends JPanel implements MouseListener {
      *                        place
      */
     public void applyDifficulty(int tubeCount, int emptyCount, int emptyAtEndCount, int colorCount) {
-        Puzzle newPuzzle = new Puzzle(tubeCount, emptyCount, emptyAtEndCount, colorCount);
+        CreatePuzzle newPuzzle = new CreatePuzzle(tubeCount, emptyCount, emptyAtEndCount, colorCount);
         newPuzzle.newPuzzle();
         puzzle = newPuzzle;
         gameOver = false;

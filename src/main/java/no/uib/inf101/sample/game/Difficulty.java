@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import no.uib.inf101.sample.controller.GamePanel;
-import no.uib.inf101.sample.model.Puzzle;
+import no.uib.inf101.sample.model.CreatePuzzle;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,7 +51,7 @@ public class Difficulty implements ChangeListener, ActionListener {
         tubesSlider = createSlider(2, 20, 10);
         emptySlider = createSlider(1, tubesSlider.getValue() / 2, 4);
         emptyAtEndSlider = createSlider(0, emptySlider.getValue(), 2);
-        colorsSlider = createSlider(1, Puzzle.possibleColors.length, 3);
+        colorsSlider = createSlider(1, CreatePuzzle.possibleColors.length, 3);
         tubesLabel = createLabel("");
         emptyLabel = createLabel("");
         emptyAtEndLabel = createLabel("");
