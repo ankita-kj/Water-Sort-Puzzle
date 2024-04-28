@@ -1,4 +1,4 @@
-//Used Chat-GPT as a helping tool to create a slider panel
+//Used Chat-GPT as a helping tool to create a slider
 
 package no.uib.inf101.sample.game;
 

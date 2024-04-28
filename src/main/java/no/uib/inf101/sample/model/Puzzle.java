@@ -43,7 +43,7 @@ public interface Puzzle {
     /**
      * Checks if there are any commands in the command history to undo
      * 
-     * @return True if undo can be calles, false otherwise
+     * @return True if undo can be called, false otherwise
      */
     boolean isUndoAvailable();
 

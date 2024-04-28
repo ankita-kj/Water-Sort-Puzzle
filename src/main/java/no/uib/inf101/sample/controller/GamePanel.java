@@ -48,15 +48,9 @@ public class GamePanel extends JPanel implements MouseListener {
                 nextButton);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        gameView.paint(g, gameOver);
-    }
-
     /**
-     * Pressing Escape will quit, R will trigger the reset action,
-     * and D will show the difficulty dialog
+     * Pressing Esc will quit, R will trigger reset,
+     * and D will show the difficulty panel
      *
      * @param keyCode The key that was pressed
      */
@@ -82,7 +76,7 @@ public class GamePanel extends JPanel implements MouseListener {
      *                        end of the solution
      * @param emptyAtEndCount The number of water tubes that begin empty at the end
      * @param colorCount      The number of different colors that can be randomly
-     *                        place
+     *                        placed
      */
     public void applyDifficulty(int tubeCount, int emptyCount, int emptyAtEndCount, int colorCount) {
         CreatePuzzle newPuzzle = new CreatePuzzle(tubeCount, emptyCount, emptyAtEndCount, colorCount);
@@ -128,6 +122,12 @@ public class GamePanel extends JPanel implements MouseListener {
             puzzle.clearSelection();
         }
         repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        gameView.paint(g, gameOver);
     }
 
     // None of the overrides below are used

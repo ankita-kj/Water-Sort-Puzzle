@@ -1,5 +1,3 @@
-//Used chat-GPT as a helping tool for Position class
-
 package no.uib.inf101.sample.model;
 
 /**
